@@ -29,24 +29,6 @@ body {
   padding: 0;
 }
 
-.dnd-navbar .nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 16px; right: 16px;
-  height: 2px;
-  background-color: var(--gold);
-  border-radius: 2px 2px 0 0;
-  transform: scaleX(0);
-  transition: transform 0.25s ease;
-}
-
-.dnd-navbar .nav-link:hover::after,
-.dnd-navbar .nav-link.active::after {
-  transform: scaleX(1);
-}
-
-
-
 .dnd-navbar .navbar-brand {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
@@ -96,13 +78,22 @@ body {
   color: var(--gold) !important;
 }
 
-.dnd-navbar .nav-link.active::after {
+.dnd-navbar .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0; left: 16px; right: 16px;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
   height: 2px;
   background-color: var(--gold);
   border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.dnd-navbar .nav-link:hover::after,
+.dnd-navbar .nav-link.active::after {
+  transform: scaleX(1);
 }
 
 @media (max-width: 991px) {
@@ -111,7 +102,7 @@ body {
     border-bottom: 1px solid var(--border);
   }
 
-  .dnd-navbar .nav-link.active::after {
+  .dnd-navbar .nav-link::after {
     display: none;
   }
 
