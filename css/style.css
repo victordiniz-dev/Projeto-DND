@@ -112,3 +112,7 @@ body {
     padding-bottom: 8px;
   }
 }
+.parte_inicial {
+  padding: 40px 0;
+  text-align: center;
+}
