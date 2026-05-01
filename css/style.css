@@ -1,191 +1,123 @@
-/* ========================================
-   RESET E CONFIGURAÇÕES GLOBAIS
-   ======================================== */
+/* css/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #111111;
+  --bg-card: #1e1e1e;
+  --gold: #c9a84c;
+  --text-primary: #f0f0f0;
+  --text-muted: #888;
+  --border: rgba(255,255,255,0.08);
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
-    line-height: 1.6;
+  background-color: var(--bg-dark);
+  font-family: 'Outfit', sans-serif;
+  color: var(--text-primary);
+  margin: 0;
 }
 
-/* ========================================
-   HEADER
-   ======================================== */
-
-header {
-    background-color: #2c3e50;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+/* ── Navbar ── */
+.dnd-navbar {
+  background-color: #161616;
+  border-bottom: 1px solid var(--border);
+  padding: 0;
 }
 
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
+.dnd-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 16px; right: 16px;
+  height: 2px;
+  background-color: var(--gold);
+  border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
 }
 
-/* ========================================
-   CONTAINER PRINCIPAL
-   ======================================== */
-
-.container {
-    max-width: 1000px;
-    margin: 20px auto;
-    padding: 0 20px;
+.dnd-navbar .nav-link:hover::after,
+.dnd-navbar .nav-link.active::after {
+  transform: scaleX(1);
 }
 
-/* ========================================
-   SEÇÕES
-   ======================================== */
 
-section {
-    background-color: white;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.dnd-navbar .navbar-brand {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--gold) !important;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
 }
 
-section h2 {
-    margin-bottom: 15px;
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
+.brand-icon {
+  width: 22px;
+  height: 22px;
 }
 
-/* ========================================
-   SEÇÃO DE ROLAR DADO
-   ======================================== */
-
-#dice-section {
-    text-align: center;
+.dnd-navbar .navbar-toggler {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 10px;
 }
 
-.dice-button {
-    background-color: #e74c3c;
-    color: white;
-    padding: 12px 30px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    transition: background-color 0.3s ease;
+.dnd-navbar .navbar-toggler:focus {
+  box-shadow: none;
 }
 
-.dice-button:hover {
-    background-color: #c0392b;
+.dnd-navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(240,240,240,0.7)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
-#dice-result {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #27ae60;
-    min-height: 30px;
+.dnd-navbar .nav-link {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary) !important;
+  padding: 18px 16px !important;
+  position: relative;
+  transition: color 0.2s;
 }
 
-/* ========================================
-   FORMULÁRIO
-   ======================================== */
-
-.form-group {
-    margin-bottom: 15px;
+.dnd-navbar .nav-link:hover {
+  color: var(--gold) !important;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #2c3e50;
+.dnd-navbar .nav-link.active {
+  color: var(--gold) !important;
 }
 
-input[type="text"],
-input[type="number"],
-select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #bdc3c7;
-    border-radius: 4px;
-    font-size: 1em;
-    transition: border-color 0.3s ease;
+.dnd-navbar .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 16px; right: 16px;
+  height: 2px;
+  background-color: var(--gold);
+  border-radius: 2px 2px 0 0;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
-}
+@media (max-width: 991px) {
+  .dnd-navbar .nav-link {
+    padding: 12px 4px !important;
+    border-bottom: 1px solid var(--border);
+  }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
+  .dnd-navbar .nav-link.active::after {
+    display: none;
+  }
 
-.submit-button {
-    background-color: #27ae60;
-    color: white;
-    padding: 12px 30px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: #229954;
-}
-
-/* ========================================
-   LISTA DE PERSONAGENS
-   ======================================== */
-
-#characters-list {
-    display: grid;
-    gap: 15px;
-}
-
-.character-item {
-    background-color: #ecf0f1;
-    padding: 15px;
-    border-left: 4px solid #3498db;
-    border-radius: 4px;
-}
-
-.empty-message {
-    text-align: center;
-    color: #7f8c8d;
-    font-style: italic;
-    padding: 40px 20px;
-}
-
-/* ========================================
-   RESPONSIVIDADE
-   ======================================== */
-
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    .container {
-        margin: 10px auto;
-    }
+  .navbar-collapse {
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+    padding-bottom: 8px;
+  }
 }

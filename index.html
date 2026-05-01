@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D&D Hub Lite</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D&D Hub Lite</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-    <a href="aba2_teste.html">Ir para a aba 2</a>
-    
+
+  <nav class="navbar navbar-expand-lg dnd-navbar">
+    <div class="container">
+
+      <a class="navbar-brand" href="#">
+        <!-- Ícone de espadas cruzadas simples -->
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="3" y1="3" x2="21" y2="21" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <line x1="21" y1="3" x2="3" y2="21" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="2" fill="#c9a84c"/>
+        </svg>
+        D&amp;D Hub
+      </a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarMain"
+              aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Meus Personagens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Campanhas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Monstruário</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
