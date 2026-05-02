@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Personagem - D&D Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg dnd-navbar">
+    <div class="container">
+
+      <a class="navbar-brand" href="index.html">
+        <!-- Ícone de espadas cruzadas simples -->
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="3" y1="3" x2="21" y2="21" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <line x1="21" y1="3" x2="3" y2="21" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="2" fill="#c9a84c"/>
+        </svg>
+        D&amp;D Hub
+      </a>
+
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navbarMain"
+              aria-controls="navbarMain" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="meus_personagens.html">Meus Personagens</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Campanhas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Monstruário</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+  <main>
+    <section class="create-character-page">
+      <div class="container">
+        <div class="create-header">
+          <a href="meus_personagens.html" class="back-link">← Voltar para Personagens</a>
+          <h1>Criar Novo Personagem</h1>
+          <p>Defina os atributos básicos do seu herói para começar sua jornada em Dungeons & Dragons.</p>
+        </div>
+
+        <form id="character-form" class="character-form">
+          <div class="form-section">
+            <h2>Informações Básicas</h2>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="character-name">Nome do Personagem</label>
+                <input type="text" id="character-name" name="name" placeholder="Ex: Aragorn, Gandalf, Elara" required>
+              </div>
+              <div class="form-group">
+                <label for="character-class">Classe</label>
+                <select id="character-class" name="class" required>
+                  <option value="">Selecione uma classe</option>
+                  <option value="guerreiro">Guerreiro</option>
+                  <option value="mago">Mago</option>
+                  <option value="ladrao">Ladrão</option>
+                  <option value="clerigo">Clérigo</option>
+                  <option value="paladino">Paladino</option>
+                  <option value="barbaro">Bárbaro</option>
+                  <option value="bardo">Bardo</option>
+                  <option value="druida">Druida</option>
+                  <option value="feiticeiro">Feiticeiro</option>
+                  <option value="monge">Monge</option>
+                  <option value="patrulheiro">Patrulheiro</option>
+                  <option value="bruxo">Bruxo</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="character-race">Raça</label>
+                <select id="character-race" name="race" required>
+                  <option value="">Selecione uma raça</option>
+                  <option value="humano">Humano</option>
+                  <option value="elfo">Elfo</option>
+                  <option value="anao">Anão</option>
+                  <option value="halfling">Halfling</option>
+                  <option value="gnomo">Gnomo</option>
+                  <option value="meio-elfo">Meio-Elfo</option>
+                  <option value="meio-orc">Meio-Orc</option>
+                  <option value="tiefling">Tiefling</option>
+                  <option value="draconato">Draconato</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="character-level">Nível</label>
+                <input type="number" id="character-level" name="level" min="1" max="20" value="1" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h2>Atributos</h2>
+            <p class="form-note">Defina os valores base dos atributos (antes de modificadores raciais).</p>
+
+            <div class="attributes-grid">
+              <div class="attribute-group">
+                <label for="character-str">Força (FOR)</label>
+                <input type="number" id="character-str" name="str" min="1" max="20" value="10" required>
+              </div>
+              <div class="attribute-group">
+                <label for="character-dex">Destreza (DES)</label>
+                <input type="number" id="character-dex" name="dex" min="1" max="20" value="10" required>
+              </div>
+              <div class="attribute-group">
+                <label for="character-con">Constituição (CON)</label>
+                <input type="number" id="character-con" name="con" min="1" max="20" value="10" required>
+              </div>
+              <div class="attribute-group">
+                <label for="character-int">Inteligência (INT)</label>
+                <input type="number" id="character-int" name="int" min="1" max="20" value="10" required>
+              </div>
+              <div class="attribute-group">
+                <label for="character-wis">Sabedoria (SAB)</label>
+                <input type="number" id="character-wis" name="wis" min="1" max="20" value="10" required>
+              </div>
+              <div class="attribute-group">
+                <label for="character-cha">Carisma (CAR)</label>
+                <input type="number" id="character-cha" name="cha" min="1" max="20" value="10" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="btn-cancel" class="btn-secondary">Cancelar</button>
+            <button type="submit" id="btn-criar-personagem" class="btn-primary">Criar Personagem</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -46,27 +46,51 @@
   </nav>
 
 
-    <main>
-        <div class="parte_inicial">
-            <button id="d20" class="btn btn-primary" onclick="RolarDado(20) ">
-                Rolar D20
-            </button>
-            <h1 id="resultadod20"> Resultado do D20</h1>
-        </div>
-        <div class="parte_inicial">
-            <button id="d6" class="btn btn-primary" onclick="RolarDado(6) ">
-                Rolar D6
-            </button>
-            <h1 id="resultadod6"> Resultado do D6</h1>
+  <main>
+    <section id="characters-section" class="characters-page">
+      <div class="container">
+        <div class="characters-header">
+          <div>
+            <span class="section-label">Meus Personagens</span>
+            <h1>Heróis prontos para embarcar na próxima aventura</h1>
+            <p>Gerencie os personagens do seu grupo com um visual limpo e moderno. Adicione novos heróis e veja-os aqui.</p>
+          </div>
+          <a href="criar_personagem.html" class="create-button">+ Criar Personagem</a>
         </div>
 
-        <input type="text" id="nome" placeholder="Digite seu nome">
-        <button onclick="pegarValor()">Enviar</button>
-        <h1 id="teste"> Katiau</h1>
+        <div id="characters-list" class="characters-list">
+          <div class="empty-state">
+            <span class="empty-icon">🛡️</span>
+            <h2>Nenhum personagem criado ainda.</h2>
+            <p>Crie seu primeiro herói para começar a organizar sua mesa de Dungeons & Dragons.</p>
+            <a href="criar_personagem.html" class="create-button">+ Criar Personagem</a>
+          </div>
+
+          <!-- Exemplo de cards quando houver personagens
+          <div class="characters-grid">
+            <article class="character-card">
+              <h3>Arion Tempesf</h3>
+              <small>Paladino</small>
+              <div class="character-meta">
+                <span>Nível 6</span>
+                <span>Humano</span>
+              </div>
+            </article>
+            <article class="character-card">
+              <h3>Lyra Sombraluna</h3>
+              <small>Bruxa</small>
+              <div class="character-meta">
+                <span>Nível 5</span>
+                <span>Elfa</span>
+              </div>
+            </article>
+          </div>
+          -->
+        </div>
+      </div>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-  <script src="javascript/script.js"></script>
 </body>
 </html>

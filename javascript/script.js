@@ -11,3 +11,4 @@ function pegarValor(){
     let valor = document.getElementById("nome").value + "nigger";
     document.getElementById("teste").innerText =  valor;
 }
+f
