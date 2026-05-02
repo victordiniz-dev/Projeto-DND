@@ -20,6 +20,8 @@ body {
   font-family: 'Outfit', sans-serif;
   color: var(--text-primary);
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
 /* ── Navbar ── */
@@ -112,20 +114,213 @@ body {
     padding-bottom: 8px;
   }
 }
-.parte_inicial {
-  padding: 40px 0;
-  text-align: center;
-  background-color: #111111;
-  height: 100vh;
+
+/* ── Hero Section ── */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #0d0a08 100%);
+  position: relative;
+  padding-top: 70px; /* Altura da navbar */
+  box-sizing: border-box;
 }
-.parte_inicial h1 {
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-section .container {
+  max-width: 1200px;
+  margin: 0 auto !important;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.05em;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold), #b8953a);
+  color: var(--bg-dark);
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.3);
+  border: 2px solid var(--gold);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.4);
+  background: linear-gradient(135deg, #b8953a, var(--gold));
+}
+
+/* ── Quick Access Section ── */
+.quick-access-section {
+  padding: 5rem 0;
+  background-color: var(--bg-dark);
+}
+
+.section-title {
   font-size: 2.5rem;
   color: var(--gold);
-  margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
 }
-.parte_inicial p {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  max-width: 600px;
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.access-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.access-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.access-card:hover::before {
+  left: 100%;
+}
+
+.access-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(201, 168, 76, 0.2);
+  border-color: var(--gold);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.access-card h3 {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.access-card p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ── Responsividade ── */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .hero-section {
+    padding-top: 80px; /* Altura maior da navbar no mobile */
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .quick-access-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .access-card {
+    padding: 1.5rem;
+  }
+
+  .btn-primary {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .quick-access-grid {
+    padding: 0 0.5rem;
+  }
 }
