@@ -7,8 +7,5 @@ function RolarDado(lados) {
         document.getElementById("resultadod6").innerText = "Resultado: " + numero;
     }
 }   
-function pegarValor(){
-    let valor = document.getElementById("nome").value + "nigger";
-    document.getElementById("teste").innerText =  valor;
-}
+
 f
