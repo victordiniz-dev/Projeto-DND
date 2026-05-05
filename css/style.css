@@ -534,6 +534,7 @@ body {
   padding: 2.5rem;
   max-width: 800px;
   margin: 0 auto;
+  
 }
 
 .form-section {
@@ -563,7 +564,7 @@ body {
 
 .form-group {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;;
 }
 
 .form-group label {
@@ -590,12 +591,15 @@ body {
   outline: none;
   border-color: var(--gold);
   box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+  
 }
 
 .form-group input::placeholder {
   color: var(--text-muted);
 }
-
+.form-group select option { 
+  color: black;
+}
 .attributes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
