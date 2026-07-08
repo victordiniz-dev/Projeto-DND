@@ -1,75 +1,530 @@
-# Estado Atual do Projeto
+# Planejamento do Projeto — Site de Fichas de D&D
 
-## 1. VISÃO GERAL
+## Convenções do Documento
 
-O projeto apresenta-se como um protótipo de hub para uma mesa de Dungeons & Dragons, com foco em organizar uma experiência inicial para navegação entre páginas de personagens, campanhas, monstros e criação de fichas. A estrutura atual sugere uma interface institucional, com destaque visual em tema escuro, elementos de navegação e telas voltadas a um uso mais conceitual do que funcional.
+**[Definido]**
+Decisão já assumida para o projeto.
 
-### Estrutura de pastas e arquivos atual
+**[Pendente]**
+Ponto que ainda precisa ser melhor definido.
 
-- [index.html](../index.html): página inicial com apresentação geral e acesso rápido.
-- [criar_personagem.html](../criar_personagem.html): página dedicada ao cadastro de personagem.
-- [meus_personagens.html](../meus_personagens.html): página de listagem de personagens.
-- [campanhas.html](../campanhas.html): arquivo presente, mas sem conteúdo relevante.
-- [monstruario.html](../monstruario.html): arquivo presente, mas sem conteúdo relevante.
-- [css/style.css](../css/style.css): folha de estilos central do projeto.
-- [javascript/script.js](../javascript/script.js): arquivo de script com lógica antiga e incompleta.
-- [docs/estado-atual.md](estado-atual.md): relatório atual do estado do repositório.
+**[Ideia futura]**
+Funcionalidade desejada, mas que não deve travar o desenvolvimento inicial.
 
-## 2. FUNCIONALIDADES
+**[Observação]**
+Comentário importante para manter contexto ou evitar confusão futura.
 
-### Funcionalidades já existentes e aparentemente operacionais
+---
 
-- Navegação entre páginas por meio de uma barra superior com links principais.
-- Página inicial com seção de destaque visual, mensagem de abertura e cards de acesso rápido.
-- Página de personagens com cabeçalho, botão de criação e estado vazio para quando ainda não existem fichas.
-- Página de criação de personagem com formulário estruturado para dados básicos e atributos.
-- Estilização visual consistente em tema escuro, com identidade visual própria baseada em cores douradas e contraste alto.
-- Comportamentos de responsividade básicos para telas menores, especialmente nas páginas com formulário e cards.
+## Visão Geral
 
-### Funcionalidades incompletas ou quebradas
+**[Definido]**
 
-- As páginas de campanhas e monstruário não foram implementadas de forma útil; elas aparecem como páginas quase vazias.
-- Os links que apontam para campanhas e monstros não levam a uma experiência real, pois ainda não existem telas completas para esses módulos.
-- A página de criação de personagem exibe um formulário, mas não há fluxo real de envio, validação de persistência ou atualização da lista de personagens.
-- A página de personagens não exibe personagens reais, porque não há origem de dados, armazenamento nem renderização dinâmica.
-- O arquivo de script não está conectado às páginas atuais de forma útil; ele parece ser um rascunho antigo e não participa do fluxo principal da interface.
-- Em [javascript/script.js](../javascript/script.js), o código busca atualizar elementos que não correspondem ao conteúdo atual das páginas, o que indica uma lógica desatualizada.
+Este é um projeto pessoal de estudo desenvolvido com **HTML, CSS e JavaScript puro**, sem framework no início.
 
-## 3. ESTRUTURA DO CÓDIGO
+O objetivo é criar um **site de fichas de personagem de D&D**, inspirado no C.R.I.S., mas com identidade e implementação próprias.
 
-### HTML
+O projeto está em fase de planejamento e ainda não possui código escrito nesta nova versão.
 
-O HTML está organizado em páginas separadas, cada uma com uma responsabilidade específica: entrada, criação de personagem e lista de personagens. Há uso de elementos semânticos como navegação, seção principal, formulário e título, o que é positivo. No entanto, o padrão ainda faz bastante uso de elementos genéricos para estruturar conteúdo, o que torna a leitura do markup menos clara do que seria ideal em um projeto maior.
+Existe uma versão antiga do projeto, mas ela está arquivada e **não deve ser usada como referência de estrutura, arquitetura ou decisões**.
 
-A repetição da barra superior em várias páginas é um ponto de atenção, porque o mesmo bloco de navegação é reescrito manualmente em cada arquivo. Isso funciona, mas limita a manutenção. Além disso, algumas páginas ainda estão incompletas e parecem servir como espaço reservado.
+Inicialmente, o site será usado apenas pelo próprio desenvolvedor e pelo seu grupo de mesa. Com o tempo, a intenção é que ele possa escalar para ser usado por outras pessoas e outras mesas.
 
-### CSS
+**[Definido]**
 
-O CSS está concentrado em um único arquivo compartilhado, o que facilita a padronização visual do projeto. A folha de estilos utiliza variáveis para cores, separação por seções e media queries para adaptações responsivas. Isso mostra uma organização relativamente boa para um projeto pequeno.
+Funcionalidades previstas:
 
-Mesmo assim, há sinais de repetição: estilos similares para botões, formulários e cards aparecem em mais de um contexto, e a estrutura de classes é bem extensa. O projeto usa classes customizadas combinadas com componentes do Bootstrap, o que é funcional, mas mistura duas abordagens de estilização em um mesmo fluxo.
+* Criação de fichas de personagem.
+* Visualização de fichas.
+* Inventário.
+* Sistema de nível/classe.
+* Área de campanhas.
+* Monstruário.
+* Catálogo de classes.
+* Suporte para conteúdo homebrew.
 
-### JavaScript
+**[Definido]**
 
-O JavaScript está muito simples e pouco integrado ao restante do projeto. Há funções isoladas, sem um padrão claro de inicialização, sem organização em módulos e sem camada de estado. A lógica atual não acompanha o fluxo das páginas HTML que foram montadas no projeto, o que sugere que o script foi deixado como esboço ou como código antigo.
+A referência principal é o **C.R.I.S.**.
 
-A ausência de listeners de eventos claros para o formulário de personagem e para a lista de personagens mostra que a camada interativa ainda está muito incompleta.
+**[Observação]**
 
-## 4. PROBLEMAS IDENTIFICADOS
+O **D&D Beyond** também pode servir como referência visual ou funcional, mas isso ainda não foi analisado com profundidade.
 
-- O projeto está em estágio de protótipo visual, mas não em estágio de aplicação funcional. A interface é bonita, porém a parte dinâmica ainda não está conectada ao comportamento esperado.
-- Em [criar_personagem.html](../criar_personagem.html), o formulário existe, mas não há uma lógica de processamento que transforme os dados em uma ficha persistente ou visível na página de personagens.
-- Em [meus_personagens.html](../meus_personagens.html), a seção de listagem está preparada para receber conteúdo, mas não há mecanismo que gere ou recupere personagens reais. O estado mostrado é apenas um placeholder visual.
-- Em [campanhas.html](../campanhas.html) e [monstruario.html](../monstruario.html), o conteúdo é praticamente inexistente. Isso compromete a coerência do hub, porque as páginas principais do menu não entregam uma experiência completa.
-- Em [css/style.css](../css/style.css), há uso de altura fixa para a área das páginas de personagens, o que pode causar problemas visuais em telas menores ou com conteúdo maior do que o espaço disponível.
-- Em [javascript/script.js](../javascript/script.js), a lógica parece ter sido escrita para um contexto anterior do projeto. Ela tenta manipular elementos que não fazem parte do fluxo atual das páginas, o que indica uma desatualização entre HTML e script.
-- Há sinais de falta de fundamentação em alguns pontos de interação: o formulário sugere uma ação de criação, mas não há caminho real para concluir esse processo; a lista de personagens sugere conteúdo, mas não há fonte de dados; os links de navegação apontam para áreas que ainda não foram implementadas.
+---
 
-## 5. DEPENDÊNCIAS E TECNOLOGIAS
+## Usuários, Contas e Acesso
 
-- HTML5 para estrutura das páginas.
-- CSS3 para estilização, com uso de variáveis, gradientes, grid e media queries.
-- Bootstrap 5 carregado via CDN para componentes de navegação, layout e responsividade.
-- Fonte externa do Google Fonts para a tipografia utilizada no projeto.
-- SVG inline para o ícone da marca.
-- Não há backend, banco de dados, framework JavaScript moderno, armazenamento local ou APIs externas em funcionamento no repositório atual.
+**[Definido]**
+
+O projeto deve ter sistema de conta de usuário, com login e senha.
+
+A existência de contas é considerada útil e necessária, principalmente porque a proposta envolve usuários acessando fichas, campanhas e dados compartilhados.
+
+**[Definido]**
+
+No sistema geral, todos os usuários terão o mesmo tipo básico de acesso.
+
+A diferença de permissões acontece dentro da área de campanhas:
+
+* O usuário que cria uma campanha se torna o mestre daquela campanha.
+* O mestre possui permissões adicionais sobre aquela campanha.
+* O mestre poderá editar configurações da campanha, incluindo regras de visibilidade das fichas dos jogadores.
+
+**[Definido]**
+
+O projeto deve usar backend futuramente, pois funcionalidades como usuários vendo fichas uns dos outros, campanhas compartilhadas e dados sincronizados entre pessoas diferentes exigem dados compartilhados de verdade.
+
+**[Definido]**
+
+No início, o projeto pode rodar localmente no computador do desenvolvedor ou ser publicado em algo simples, como GitHub Pages.
+
+Conforme o projeto escalar, a hospedagem poderá evoluir para uma solução mais adequada.
+
+**[Objetivo inicial]**
+
+A primeira meta de escala é o sistema funcionar bem para o grupo de mesa do desenvolvedor.
+
+---
+
+## Escopo Inicial
+
+**[Definido]**
+
+A prioridade inicial do projeto será:
+
+1. Fichas de personagem.
+2. Inventário.
+
+Essas duas áreas devem funcionar bem antes de o projeto avançar com força para campanhas, monstruário, classes ou homebrew.
+
+**[Definido]**
+
+Não existe prazo real para o projeto.
+
+Ele é um projeto pessoal de estudo, feito sem pressa.
+
+---
+
+## Fichas de Personagem
+
+**[Definido]**
+
+A ficha seguirá inicialmente a **5e padrão**.
+
+**[Ideia futura]**
+
+Seria interessante permitir que a pessoa escolhesse a versão do sistema, como 5e 2014 ou 5e 2024, mas isso é considerado trabalhoso e não faz parte do foco inicial.
+
+**[Definido]**
+
+A ideia é automatizar tudo que for viável automatizar.
+
+Exemplos de cálculos que podem ser automatizados:
+
+* Modificadores de atributo.
+* Classe de Armadura.
+* Bônus de proficiência.
+* Outros valores derivados da ficha.
+
+**[Definido]**
+
+Mesmo com automações, o usuário deve poder ajustar valores manualmente quando desejar.
+
+Isso é importante porque alguns personagens podem ter regras específicas, homebrew, exceções de mesa ou ajustes definidos pelo mestre.
+
+**[Pendente]**
+
+A lista completa de campos obrigatórios da ficha ainda precisa ser definida com mais cuidado.
+
+**[Definido inicial]**
+
+Uma ficha minimamente completa deve ter, pelo menos:
+
+* Nome.
+* Raça.
+* Classe.
+* Nível.
+* Atributos.
+* Pontos de vida.
+* Classe de Armadura.
+* Perícias.
+* Magias.
+* Inventário.
+* Equipamentos.
+* Itens comuns.
+* Deslocamento.
+* Outros campos mecânicos ainda a definir.
+
+**[Definido]**
+
+Uma pessoa poderá criar e salvar vários personagens diferentes.
+
+**[Definido]**
+
+A ficha terá campos de texto livre para informações não mecânicas, como:
+
+* Background/história do personagem.
+* Aparência.
+* Outras descrições livres.
+
+**[Definido]**
+
+Multiclasse ficará para depois e não entra no escopo inicial.
+
+**[Definido]**
+
+O usuário poderá preencher a ficha manualmente.
+
+Isso serve tanto para criar um personagem novo quanto para registrar no site um personagem que já existe fora dele.
+
+**[Ideia futura]**
+
+Existe a ideia de criar um sistema capaz de ler uma ficha em PDF e converter os dados dela para a ficha do site.
+
+Essa funcionalidade é considerada ambiciosa e arriscada, portanto fica para o futuro.
+
+**[Definido]**
+
+Personagens que usam magia devem ter uma lista de magias conhecidas ou preparadas.
+
+A ideia é que o sistema tenha um catálogo pré-definido de magias, e o personagem possa escolher magias a partir dele.
+
+**[Definido]**
+
+Caso o usuário queira criar uma magia personalizada, deverá existir uma opção de homebrew, provavelmente acessada por um botão de adicionar, onde ele poderá escrever a descrição da magia.
+
+---
+
+## Inventário
+
+**[Definido]**
+
+O inventário não será apenas uma lista de texto livre.
+
+A ideia é que o usuário escolha itens a partir de um menu/catálogo de inventário.
+
+O catálogo deve ter categorias como:
+
+* Armaduras.
+* Armas.
+* Itens comuns.
+* Outros tipos de objetos ainda a definir.
+
+**[Definido]**
+
+Cada item deve ter propriedades próprias, como:
+
+* Peso.
+* Valor.
+* Tipo.
+* Descrição.
+* Outras informações específicas conforme o tipo de item.
+
+**[Definido]**
+
+O sistema deve calcular automaticamente o peso total do inventário.
+
+**[Definido]**
+
+O sistema deve ter um banco/catálogo de itens próprio.
+
+**[Definido]**
+
+O jogador também poderá criar itens personalizados.
+
+Esses itens personalizados se conectam com a área de homebrew.
+
+**[Definido]**
+
+O inventário deve ter conceito de item equipado.
+
+Alguns itens equipados devem afetar outras partes da ficha.
+
+Exemplos:
+
+* Uma armadura equipada pode alterar a Classe de Armadura.
+* Uma arma equipada pode aparecer em uma área de ataques.
+
+**[Definido]**
+
+A área de ataques deve mostrar informações relacionadas às armas equipadas, como:
+
+* Arma utilizada.
+* Dano.
+* Estatísticas editáveis da arma.
+* Opção de rolar dano.
+* Tratamento de crítico, podendo dobrar o dano ou aplicar outro cálculo dependendo de habilidades ou regras específicas.
+
+**[Definido]**
+
+Moedas/dinheiro do personagem entram no inventário.
+
+---
+
+## Progressão
+
+**[Definido]**
+
+O projeto não pretende usar XP no escopo inicial.
+
+A progressão será baseada em nível decidido entre mestre e jogador.
+
+Quando o personagem subir de nível, o usuário altera o nível no site, e o sistema atualiza ou orienta as mudanças necessárias.
+
+**[Observação]**
+
+Caso XP seja incluído futuramente, ele poderá ser inserido manualmente.
+
+**[Definido]**
+
+Ao subir de nível, o site deve ajudar o jogador mostrando o que mudou ou o que precisa ser revisado.
+
+A ideia é que a experiência lembre um sistema de jogo/RPG digital, onde ao subir de nível o usuário vê quais melhorias ficaram disponíveis.
+
+Exemplos de informações que o site pode indicar:
+
+* Necessidade de rolar ou ajustar pontos de vida.
+* Novas habilidades disponíveis.
+* Novos espaços de magia.
+* Escolhas que precisam ser feitas no nível atual.
+* Outras alterações relacionadas à classe, nível ou personagem.
+
+**[Observação]**
+
+Algumas mudanças podem ser facilitadas pelo site, mas outras ainda dependerão do jogador, do mestre e do livro.
+
+---
+
+## Campanhas
+
+**[Definido]**
+
+Qualquer usuário poderá criar uma campanha.
+
+O criador da campanha será considerado o mestre daquela campanha.
+
+**[Definido]**
+
+Jogadores entrarão em uma campanha por meio de link ou código de convite.
+
+**[Definido]**
+
+Dentro de uma campanha, jogadores e mestre poderão visualizar os personagens participantes.
+
+Exemplo:
+
+Em uma mesa com 1 mestre e 3 jogadores, os jogadores poderão ver, na aba da campanha, cards dos personagens dos outros jogadores.
+
+Ao clicar em um card, o usuário acessa a ficha daquele personagem.
+
+**[Definido]**
+
+O mestre poderá desabilitar a visualização das fichas entre jogadores nas configurações da campanha.
+
+Se essa opção estiver desabilitada, os jogadores não poderão ver as fichas uns dos outros.
+
+**[Definido]**
+
+Não haverá interações sociais complexas no escopo inicial.
+
+Não estão previstos inicialmente:
+
+* Chat.
+* Sistema social.
+* Interações entre usuários além da campanha.
+
+**[Possível funcionalidade simples]**
+
+Pode existir algo como um diário de sessão, mas inicialmente isso seria apenas um campo de texto dentro da ficha do próprio jogador.
+
+**[Definido]**
+
+Não há intenção inicial de limitar a quantidade de jogadores ou personagens em uma campanha.
+
+**[Observação]**
+
+Um limite pode ser considerado futuramente se houver necessidade por desempenho, estabilidade ou para evitar problemas no site.
+
+**[Definido]**
+
+Um personagem poderá participar de mais de uma campanha ao mesmo tempo.
+
+---
+
+## Monstruário
+
+**[Definido]**
+
+A ideia principal do monstruário é ser um catálogo fixo de monstros.
+
+**[Definido]**
+
+A criação de monstros próprios se conecta com o sistema de homebrew e será planejada melhor depois.
+
+**[Definido]**
+
+O monstro deve servir para consulta/referência.
+
+**[Definido]**
+
+O mestre também deverá ter a opção de administrar a vida de um monstro ou inimigo.
+
+**[Possível funcionalidade]**
+
+O mestre poderá rolar dados ou testes/ações fixas do monstro, como ataques ou ações específicas.
+
+Essa funcionalidade ainda está em aberto e precisa ser melhor pensada.
+
+**[Definido inicial]**
+
+Na visão do projeto, um monstro deve ter uma ficha completa, incluindo:
+
+* Pontos de vida.
+* Classe de Armadura.
+* Ataques.
+* Resistências.
+* Descrição.
+* Imagem.
+* Outras informações relevantes da ficha do monstro.
+
+---
+
+## Classes
+
+**[Definido]**
+
+O catálogo de classes deve conter todas as classes oficiais.
+
+**[Definido]**
+
+Se possível, o catálogo também deve incluir subclasses.
+
+**[Definido]**
+
+Subclasses entram no escopo inicial, mas serão tratadas em ritmo lento e gradual.
+
+**[Observação]**
+
+O jogador poderá escolher a classe do personagem e consultar suas habilidades.
+
+Também deverá poder visualizar subclasses relacionadas quando isso for implementado.
+
+**[Pendente]**
+
+Ainda precisa ser definido o nível de profundidade do catálogo de classes:
+
+* Se será apenas uma referência resumida.
+* Se terá habilidades por nível.
+* Se terá integração direta com a ficha.
+* Se aplicará automaticamente efeitos no personagem.
+
+---
+
+## Homebrew
+
+**[Definido]**
+
+O homebrew se aplica inicialmente a:
+
+* Itens.
+* Magias.
+
+**[Pendente]**
+
+Classes homebrew ainda não estão definidas.
+
+A princípio, talvez não entrem no escopo inicial.
+
+**[Definido]**
+
+Homebrews criados dentro da ficha de um usuário poderão ser vistos por outros usuários quando eles tiverem acesso à ficha.
+
+**[Definido]**
+
+A criação de homebrew será livre, sem moderação no início.
+
+**[Ideia futura]**
+
+Futuramente, pode existir algum sistema onde determinados homebrews possam concorrer ou ser escolhidos para virar um “homebrew oficial” do site, de forma parecida com a ideia do C.R.I.S.
+
+**[Pendente]**
+
+Ainda precisa ser definido como homebrews serão organizados, salvos, compartilhados e reaproveitados fora da ficha onde foram criados.
+
+---
+
+## Decisões Técnicas
+
+**[Definido]**
+
+O projeto será desenvolvido inicialmente com:
+
+* HTML.
+* CSS.
+* JavaScript puro.
+
+**[Definido]**
+
+O desenvolvedor é iniciante e ainda está aprendendo.
+
+**[Definido]**
+
+O desenvolvedor já tentou mexer com `localStorage`, mas ainda não domina bem.
+
+**[Definido]**
+
+A preferência inicial é usar CSS puro.
+
+O desenvolvedor não gosta muito de Bootstrap.
+
+**[Observação]**
+
+Tailwind ou Bootstrap podem ser considerados no futuro, quando o desenvolvedor estiver mais evoluído, mas não são prioridade agora.
+
+**[Definido]**
+
+O projeto provavelmente precisará de backend futuramente, principalmente por causa de:
+
+* Contas de usuário.
+* Login e senha.
+* Campanhas compartilhadas.
+* Visualização de fichas entre usuários.
+* Dados acessíveis por mais de uma pessoa.
+
+**[Definido]**
+
+No início, o projeto pode rodar localmente ou em uma hospedagem simples como GitHub Pages.
+
+Conforme o projeto crescer, a hospedagem poderá evoluir.
+
+---
+
+## Dúvidas em Aberto
+
+* Lista final de campos obrigatórios da ficha de personagem.
+* Como estruturar a ficha para suportar automações e ajustes manuais ao mesmo tempo.
+* Como estruturar o sistema de magias conhecidas/preparadas.
+* Como será o modelo exato de itens no inventário.
+* Como calcular capacidade de carga e peso total.
+* Como itens equipados afetam ficha, CA e ataques.
+* Como será a área de ataques.
+* Como será a progressão sem XP.
+* Quais notificações ou sugestões aparecem ao subir de nível.
+* Como funcionará o backend futuramente.
+* Como será o sistema de login.
+* Como armazenar e compartilhar campanhas.
+* Como controlar permissões do mestre dentro da campanha.
+* Como definir visibilidade das fichas dentro da campanha.
+* Como estruturar o diário de sessão dentro da ficha.
+* Como será o monstruário em detalhes.
+* Se o monstruário terá rolagens integradas.
+* Como administrar vida de monstros/inimigos.
+* Qual será a profundidade do catálogo de classes.
+* Como subclasses serão representadas.
+* Como homebrews serão salvos.
+* Como homebrews serão compartilhados.
+* Se classes homebrew entrarão ou não no projeto.
+* Como um homebrew poderia virar “oficial” futuramente.
+* Se haverá importação de ficha por PDF no futuro.
+* Se haverá suporte a múltiplas versões de D&D no futuro.
