@@ -45,7 +45,7 @@ Funcionalidades previstas:
 
 **[Definido]**
 
-A referência principal é o **C.R.I.S.**.
+A referência principal é o **C.R.I.S.**
 
 **[Observação]**
 
@@ -133,6 +133,41 @@ Mesmo com automações, o usuário deve poder ajustar valores manualmente quando
 
 Isso é importante porque alguns personagens podem ter regras específicas, homebrew, exceções de mesa ou ajustes definidos pelo mestre.
 
+---
+
+### Automações, Regras e Validações
+
+**[Definido]**
+
+O site deve saber o suficiente das regras de D&D para **calcular e orientar**, mas não para policiar rigidamente todas as escolhas do usuário.
+
+A proposta não é impedir o jogador de fazer escolhas consideradas "fora da regra oficial" em todos os casos.
+
+Exemplos:
+
+* Se uma classe/origem normalmente permite escolher uma quantidade específica de perícias, o site pode indicar essa quantidade.
+* Se o jogador escolher uma perícia diferente da lista normalmente ofertada, o site não precisa impedir.
+* Se o jogador escolher mais perícias do que o esperado, o site não necessariamente bloqueará.
+
+**[Definido]**
+
+A lógica principal será:
+
+* Automatizar cálculos úteis quando possível.
+* Orientar o jogador sobre o que normalmente deveria acontecer.
+* Permitir ajustes manuais.
+* Evitar validações rígidas demais, exceto em casos específicos que forem definidos individualmente.
+
+**[Observação]**
+
+Algumas limitações podem existir, mas serão decididas caso a caso.
+
+A ideia é não transformar o site em um sistema que tenta fiscalizar completamente todas as regras oficiais.
+
+---
+
+### Campos da Ficha
+
 **[Pendente]**
 
 A lista completa de campos obrigatórios da ficha ainda precisa ser definida com mais cuidado.
@@ -158,19 +193,43 @@ Uma ficha minimamente completa deve ter, pelo menos:
 
 **[Definido]**
 
-Uma pessoa poderá criar e salvar vários personagens diferentes.
-
-**[Definido]**
-
 A ficha terá campos de texto livre para informações não mecânicas, como:
 
 * Background/história do personagem.
 * Aparência.
 * Outras descrições livres.
 
+---
+
+### Perícias
+
 **[Definido]**
 
-Multiclasse ficará para depois e não entra no escopo inicial.
+O site deve mostrar todas as perícias disponíveis.
+
+A escolha correta das perícias ficará sob responsabilidade do jogador e/ou do mestre.
+
+O sistema não deve filtrar obrigatoriamente as perícias com base na classe, raça/origem ou antecedente.
+
+---
+
+### Personagens Salvos
+
+**[Definido]**
+
+Uma pessoa poderá criar e salvar vários personagens diferentes.
+
+**[Definido]**
+
+Um personagem existe independentemente de uma campanha.
+
+O usuário pode ter fichas/personagens soltos, sem estarem vinculados a nenhuma campanha.
+
+Depois, o personagem poderá ser vinculado a uma ou mais campanhas.
+
+---
+
+### Criação e Importação de Fichas
 
 **[Definido]**
 
@@ -184,6 +243,18 @@ Existe a ideia de criar um sistema capaz de ler uma ficha em PDF e converter os 
 
 Essa funcionalidade é considerada ambiciosa e arriscada, portanto fica para o futuro.
 
+---
+
+### Multiclasse
+
+**[Definido]**
+
+Multiclasse ficará para depois e não entra no escopo inicial.
+
+---
+
+### Magias na Ficha
+
 **[Definido]**
 
 Personagens que usam magia devem ter uma lista de magias conhecidas ou preparadas.
@@ -193,6 +264,32 @@ A ideia é que o sistema tenha um catálogo pré-definido de magias, e o persona
 **[Definido]**
 
 Caso o usuário queira criar uma magia personalizada, deverá existir uma opção de homebrew, provavelmente acessada por um botão de adicionar, onde ele poderá escrever a descrição da magia.
+
+---
+
+### Diário de Sessão / Anotações
+
+**[Definido]**
+
+O diário de sessão será inicialmente um campo de texto dentro da ficha do próprio jogador.
+
+Esse campo ficará junto de outras áreas textuais da ficha, como:
+
+* Aparência.
+* História.
+* Background.
+* Anotações da campanha.
+* Diário de sessão.
+
+**[Definido]**
+
+Esse diário não será, no início, um diário global da campanha.
+
+Ele funcionará como anotações pessoais do personagem/jogador.
+
+**[Ideia futura]**
+
+Essa aba poderá ser aprimorada futuramente, caso faça sentido evoluir para algo mais estruturado.
 
 ---
 
@@ -248,6 +345,14 @@ Exemplos:
 
 **[Definido]**
 
+Moedas/dinheiro do personagem entram no inventário.
+
+---
+
+## Ataques e Rolagem de Dados
+
+**[Definido]**
+
 A área de ataques deve mostrar informações relacionadas às armas equipadas, como:
 
 * Arma utilizada.
@@ -258,7 +363,26 @@ A área de ataques deve mostrar informações relacionadas às armas equipadas, 
 
 **[Definido]**
 
-Moedas/dinheiro do personagem entram no inventário.
+O site deve ter um sistema real de rolagem de dados para ataques e dano.
+
+Exemplo:
+
+Se uma arma possui dano `1d6+3`, o usuário poderá clicar para rolar esse dano, e o sistema gerará um resultado aleatório com base nessa fórmula.
+
+**[Definido]**
+
+A rolagem de dano deve considerar notações de dados como:
+
+* `1d6`
+* `1d8+3`
+* `2d6+4`
+* Outras variações a definir.
+
+**[Observação]**
+
+Isso implica a criação de uma lógica própria para interpretar fórmulas de dados, gerar números aleatórios e calcular resultados.
+
+Esse sistema pode ser tratado como um pequeno motor interno de rolagem.
 
 ---
 
@@ -276,6 +400,10 @@ Quando o personagem subir de nível, o usuário altera o nível no site, e o sis
 
 Caso XP seja incluído futuramente, ele poderá ser inserido manualmente.
 
+---
+
+### Level Up Guiado
+
 **[Definido]**
 
 Ao subir de nível, o site deve ajudar o jogador mostrando o que mudou ou o que precisa ser revisado.
@@ -289,6 +417,33 @@ Exemplos de informações que o site pode indicar:
 * Novos espaços de magia.
 * Escolhas que precisam ser feitas no nível atual.
 * Outras alterações relacionadas à classe, nível ou personagem.
+
+**[Definido]**
+
+O level up será guiado, mas não totalmente automático.
+
+Quando o personagem subir de nível, o site deve avisar o jogador sobre mudanças ou escolhas disponíveis.
+
+Exemplos:
+
+* Informar que o personagem pode escolher mais magias.
+* Indicar que há novos espaços de magia disponíveis.
+* Avisar que pontos de vida precisam ser ajustados.
+* Mostrar que novas habilidades podem ter sido desbloqueadas.
+
+**[Definido]**
+
+O site não escolherá automaticamente pelo jogador.
+
+O jogador deverá seguir as notificações e aplicar as mudanças necessárias.
+
+**[Exemplo conceitual]**
+
+Se o personagem tiver direito a mais uma magia, o site pode indicar algo como:
+
+> Você possui espaço para escolher mais uma magia.
+
+A frase final ainda será refinada, mas a ideia é orientar sem automatizar completamente a decisão.
 
 **[Observação]**
 
@@ -334,9 +489,11 @@ Não estão previstos inicialmente:
 * Sistema social.
 * Interações entre usuários além da campanha.
 
-**[Possível funcionalidade simples]**
+**[Observação]**
 
-Pode existir algo como um diário de sessão, mas inicialmente isso seria apenas um campo de texto dentro da ficha do próprio jogador.
+O diário de sessão, no escopo inicial, não será um recurso global da campanha.
+
+Ele será tratado como um campo de texto dentro da ficha do próprio jogador.
 
 **[Definido]**
 
@@ -410,6 +567,24 @@ O jogador poderá escolher a classe do personagem e consultar suas habilidades.
 
 Também deverá poder visualizar subclasses relacionadas quando isso for implementado.
 
+**[Definido]**
+
+O desenvolvedor tem consciência de que incluir todas as classes oficiais, subclasses, itens e monstros representa uma grande quantidade de dados.
+
+**[Pendente]**
+
+Ainda será necessário definir como o site vai organizar e lidar com esse volume de informação.
+
+Pontos a avaliar futuramente:
+
+* Como armazenar os dados de classes.
+* Como armazenar subclasses.
+* Como armazenar itens.
+* Como armazenar monstros.
+* Se esses dados serão escritos em JSON, arquivos separados ou outra estrutura.
+* Como popular esse conteúdo gradualmente.
+* Como evitar que o site fique pesado ou difícil de manter.
+
 **[Pendente]**
 
 Ainda precisa ser definido o nível de profundidade do catálogo de classes:
@@ -436,9 +611,36 @@ Classes homebrew ainda não estão definidas.
 
 A princípio, talvez não entrem no escopo inicial.
 
+---
+
+### Visibilidade do Homebrew
+
 **[Definido]**
 
-Homebrews criados dentro da ficha de um usuário poderão ser vistos por outros usuários quando eles tiverem acesso à ficha.
+O homebrew será inicialmente algo adicionado dentro da ficha.
+
+Exemplo:
+
+Se o personagem César, um ladino, tiver uma adaga homebrew no inventário, essa adaga aparecerá normalmente como item na ficha dele.
+
+**[Definido]**
+
+Outros usuários poderão ver esse homebrew quando tiverem acesso à ficha onde ele aparece.
+
+Isso pode acontecer em situações como:
+
+* Um jogador da mesma campanha abre a ficha do personagem.
+* O dono da ficha compartilha um link da ficha com outra pessoa.
+
+**[Definido]**
+
+No escopo inicial, o homebrew não será necessariamente um catálogo público global acessível por qualquer usuário do site.
+
+A visibilidade inicial está ligada ao acesso à ficha onde aquele conteúdo homebrew foi usado.
+
+---
+
+### Moderação e Oficialização
 
 **[Definido]**
 
@@ -482,6 +684,10 @@ O desenvolvedor não gosta muito de Bootstrap.
 
 Tailwind ou Bootstrap podem ser considerados no futuro, quando o desenvolvedor estiver mais evoluído, mas não são prioridade agora.
 
+---
+
+### Backend e Dados Compartilhados
+
 **[Definido]**
 
 O projeto provavelmente precisará de backend futuramente, principalmente por causa de:
@@ -500,15 +706,56 @@ Conforme o projeto crescer, a hospedagem poderá evoluir.
 
 ---
 
+### GitHub Pages
+
+**[Definido]**
+
+GitHub Pages pode ser usado no início para testes, aprendizado e uso simples com o grupo de mesa.
+
+**[Observação técnica]**
+
+GitHub Pages hospeda apenas arquivos estáticos, como:
+
+* HTML.
+* CSS.
+* JavaScript.
+* Imagens.
+* Arquivos estáticos.
+
+Ele não roda backend próprio.
+
+**[Definido]**
+
+Quando o projeto precisar de recursos como:
+
+* Conta de usuário.
+* Login e senha.
+* Dados compartilhados entre pessoas.
+* Campanhas acessadas por vários usuários.
+* Fichas vistas por outras pessoas em tempo real ou de forma sincronizada.
+
+será necessário usar alguma solução com backend real.
+
+**[Definido]**
+
+GitHub Pages continua sendo válido para a fase inicial de testes, mas não será suficiente para a versão completa com backend, autenticação e dados compartilhados.
+
+---
+
 ## Dúvidas em Aberto
+
+**[Ainda em aberto]**
 
 * Lista final de campos obrigatórios da ficha de personagem.
 * Como estruturar a ficha para suportar automações e ajustes manuais ao mesmo tempo.
+* Quais regras específicas o site deve limitar de verdade.
 * Como estruturar o sistema de magias conhecidas/preparadas.
 * Como será o modelo exato de itens no inventário.
 * Como calcular capacidade de carga e peso total.
 * Como itens equipados afetam ficha, CA e ataques.
-* Como será a área de ataques.
+* Como será a área de ataques em detalhes.
+* Como estruturar o motor de rolagem de dados.
+* Quais notações de dados serão aceitas inicialmente.
 * Como será a progressão sem XP.
 * Quais notificações ou sugestões aparecem ao subir de nível.
 * Como funcionará o backend futuramente.
@@ -516,15 +763,17 @@ Conforme o projeto crescer, a hospedagem poderá evoluir.
 * Como armazenar e compartilhar campanhas.
 * Como controlar permissões do mestre dentro da campanha.
 * Como definir visibilidade das fichas dentro da campanha.
-* Como estruturar o diário de sessão dentro da ficha.
 * Como será o monstruário em detalhes.
 * Se o monstruário terá rolagens integradas.
 * Como administrar vida de monstros/inimigos.
 * Qual será a profundidade do catálogo de classes.
 * Como subclasses serão representadas.
+* Como organizar os dados oficiais de classes, subclasses, itens e monstros.
+* Como evitar que o grande volume de dados deixe o projeto pesado.
 * Como homebrews serão salvos.
 * Como homebrews serão compartilhados.
 * Se classes homebrew entrarão ou não no projeto.
 * Como um homebrew poderia virar “oficial” futuramente.
 * Se haverá importação de ficha por PDF no futuro.
 * Se haverá suporte a múltiplas versões de D&D no futuro.
+* Como será a hospedagem/backend quando o projeto sair da fase estática.
